@@ -14,8 +14,8 @@
     defineProps({
         cardholderName: String,
         cardNumber: String,
-        month: String,
-        year:String,
+        month: Number,
+        year: Number,
     })
 </script>
 

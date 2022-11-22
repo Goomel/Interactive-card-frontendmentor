@@ -1,5 +1,5 @@
 <template>
-   <button type="submit">
+   <button type="submit" @click.prevent="$emit('submit')">
     Confirm
    </button>
 </template>
