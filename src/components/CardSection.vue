@@ -16,7 +16,7 @@
                 
                 <div class="form-group">
                     <label for="card-number">Card number</label>
-                    <input type="text" id="card-number" v-model="formData.cardNumber" placeholder="e.g. 1234 5678 9123 0000">
+                    <input type="text" maxlength="16" id="card-number" v-model="formData.cardNumber" placeholder="e.g. 1234 5678 9123 0000">
                     <p v-if="$v.cardNumber.$error" class="error-message">
                         {{$v.cardNumber.$errors[0].$message}}
                     </p>
@@ -24,8 +24,8 @@
 
                 <div class="form-group">
                     <label>Exp. date (mm/yy)</label>
-                    <input type="text" v-model.number="formData.month" placeholder="MM">
-                    <input type="text" v-model.number="formData.year" placeholder="YY">
+                    <input type="text" v-model="formData.month" placeholder="MM">
+                    <input type="text" v-model="formData.year" placeholder="YY">
                     <p class="error-message">
                         <span v-if="$v.month.$error">{{$v.month.$errors[0].$message}}</span>
                         <span v-if="$v.year.$error">{{$v.year.$errors[0].$message}}</span>
@@ -116,6 +116,18 @@
 </script>   
 
 <style lang="scss" scoped>
+    .interactive-cards{
+        width: 100%;
+
+    }
+    .cards{
+        position: relative;
+        width: 100%;
+        min-height: 40vh;
+        background-image: url('../assets/images/bg-main-mobile.png');
+        background-size: cover;
+    }
+
     .error-message{
         color: red;
     }
