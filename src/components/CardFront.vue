@@ -22,16 +22,22 @@
     const cardNumber = computed(()=>{
         return props.cardNumber
     })
-    /**
-    * TODO: When you delete something from input, formattedCardNumber still gets it, FIX IT!
-    * TODO: When cardNumber input is empty, formattedCardNumber gets 'undefined'
-     */
+ 
     const formattedCardNumber = ref('');
-    watch(cardNumber, (newCardNumber) => {
-        formattedCardNumber.value += newCardNumber[newCardNumber.length-1]
-        if(newCardNumber.length % 4 === 0 ){
+    watch(cardNumber, (newCardNumber, oldCardNumber) => {
+        if(newCardNumber.length >= oldCardNumber.length){
+            formattedCardNumber.value += newCardNumber[newCardNumber.length-1]
+            if(newCardNumber.length % 4 === 0 ){
             formattedCardNumber.value += ' '
+            }
+        }else{
+            if(formattedCardNumber.value.charAt(formattedCardNumber.value.length-2) === ' '){
+                formattedCardNumber.value = formattedCardNumber.value.slice(0,-2);
+            }else{
+                formattedCardNumber.value = formattedCardNumber.value.slice(0,-1);
+            }
         }
+
     })
 </script>
 

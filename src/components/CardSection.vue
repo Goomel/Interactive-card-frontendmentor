@@ -50,7 +50,7 @@
                 <ConfirmButton @submit="submitForm" btn-text="Confirm"/>
             </form>
             </div>
-            <FormAlert/>
+            <FormAlert v-if="isFormValid"/>
         </div>
     </section>
 
