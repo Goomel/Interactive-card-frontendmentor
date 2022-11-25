@@ -22,6 +22,10 @@
     const cardNumber = computed(()=>{
         return props.cardNumber
     })
+    /**
+    * TODO: When you delete something from input, formattedCardNumber still gets it, FIX IT!
+    * TODO: When cardNumber input is empty, formattedCardNumber gets 'undefined'
+     */
     const formattedCardNumber = ref('');
     watch(cardNumber, (newCardNumber) => {
         formattedCardNumber.value += newCardNumber[newCardNumber.length-1]
@@ -33,8 +37,8 @@
 
 <style lang="scss" scoped>
     .card-front{
-        width: fit-content;
         width: 280px;
+        transform: translateY(-45%);
         &-img{
             width: 100%;
             max-width: 350px;

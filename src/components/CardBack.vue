@@ -13,8 +13,8 @@
 
 <style lang="scss" scoped>
     .card-back{
-        width: fit-content;
         width: 280px;
+        align-self: flex-end;
         &-img{
            width: 100%;
         }
