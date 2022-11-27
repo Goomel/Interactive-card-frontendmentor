@@ -26,7 +26,7 @@
                 </div>
 
                 <div class="form-group form-group--short">
-                    <label class="form-group__label">Exp. date (mm/yy)</label>
+                    <label class="form-group__label">Exp.&nbsp;date&nbsp;(mm/yy)</label>
                     <div class="card-date">
                         <div class="card-date__month">
                             <input type="text" maxlength="2" class="form-group__input form-group__input--date" :class="{ 'form-group__input--error': $v.month.$error}" v-model="formData.month" placeholder="MM">
@@ -50,7 +50,7 @@
                 <ConfirmButton @submit="submitForm" btn-text="Confirm"/>
             </form>
             </div>
-            <FormAlert v-if="isFormValid"/>
+            <FormAlert v-if="isFormValid" :closeFormAlert="closeFormAlert"/>
         </div>
     </section>
 
@@ -123,13 +123,18 @@
             isFormValid.value = true;
         }
     }
+    const closeFormAlert = () =>{
+        isFormValid.value = false;
+    }
 </script>   
 
 <style lang="scss" scoped>
-    .interactive-cards{
-        width: 100%;
+    .interactive-card{
+        display: flex;
+        flex-direction: column;
     }
     .cards-side{
+        position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -137,17 +142,19 @@
         background-image: url('../assets/images/bg-main-mobile.png');
         background-size: cover;
         min-height: 30vh;
-        margin-bottom: 4em;
+        margin-bottom: 3em;
         .cards{
         position: absolute;
         top: 2em;
-        width: 90%;
+        width: 100%;
         display: flex;
+        align-items: center;
         flex-direction: column;
         }
     }
     .form-side{
             position:relative;
+            display: flex;
     }
     .form-container{
         width: 90%;
@@ -171,18 +178,17 @@
                 .error-message{
                     font-size: 10px;
                     text-transform: initial;
-                    padding: 5px 0;
+                    margin-top: 5px;
                     color: var(--error-input);
                 }
                 &--short{
                     width: 50%;
                 }
                 &__input{
-                    font-size: 18px;
+                    font-size: 14px;
                     padding: 10px;
                     border: 1px solid var(--light-grayish-violet);
                     border-radius: 10px;
-                    z-index: 1;
                     &:focus{
                         outline: 1px solid var(--active-input);  
                     }
@@ -196,7 +202,53 @@
                 .card-date{
                     display: flex;
                     &__year{
-                        margin: 0 10px 0 5px;
+                        margin: 0 20px 0 5px;
+                    }
+                }
+            }
+        }
+    }
+    @media(min-width: 375px){
+        .cards-side{
+            margin-bottom: 5em;
+        }
+    }
+    @media(min-width: 768px){
+        .cards-side{
+            margin-bottom: 9em;
+        }
+    }
+    @media(min-width: 992px){
+        .interactive-card{
+            flex-direction: row;
+        }
+        .cards-side{
+            width: 35%;
+            height: 100vh;
+            background-image: url('../assets/images/bg-main-desktop.png');
+            margin: 0;
+            .cards{
+                top: 50%;
+                transform: translateY(-50%);
+                flex-direction: column-reverse;
+                left: 40%
+            }
+        }
+        .form-side{
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            .form-container{
+                width: 40%;
+                min-width: 300px;
+                margin-left: 35%;
+                .form-group{
+                    margin-bottom: 0.8em;
+                    &__label{
+                        font-size: 10px;
+                    }
+                    &__input{
+                        font-size: 12px;
                     }
                 }
             }

@@ -1,14 +1,17 @@
 <template>
     <div class="form-alert">
         <img src="../assets/images/icon-complete.svg" alt="Complete">
-        <h2>Thank you!</h2>
-        <p>We've added your card details</p>
-        <ConfirmButton btn-text="Continue"/>
+        <h2 class="form-alert__thanks">Thank you!</h2>
+        <p class="form-alert__info">We've added your card details</p>
+        <ConfirmButton btn-text="Continue" @submit="props.closeFormAlert"/>
     </div>
 </template>
 
 <script setup>
     import ConfirmButton from './ConfirmButton.vue';
+    const props = defineProps({
+        closeFormAlert: Function
+    })
 </script>
 
 <style lang="scss" scoped>
@@ -26,5 +29,21 @@
         align-items: center;
         z-index: 2;
         background-color: var(--white);
+        &__thanks{
+            text-transform: uppercase;
+            color: var(--very-dark-violet);
+            font-weight: 400;
+            letter-spacing: 3px;
+            margin: .8em 0;
+        }
+        &__info{
+            color: var(--dark-grayish-violet);
+            margin-bottom: 2em;
+        }
+    }
+    @media(min-width: 992px){
+        .form-alert{
+            width: 50%;
+        }
     }
 </style>

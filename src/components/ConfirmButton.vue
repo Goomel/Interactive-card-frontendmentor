@@ -15,11 +15,18 @@
    .confirm-btn {
       width: 100%;
       padding: 20px 0;
-      margin-top: 20px;
-      font-size: 18px;
+      margin: 1.5em 0;
+      font-size: 14px;
       background-color: var(--very-dark-violet);
       color: var(--light-grayish-violet);
       border: 0px;
       border-radius: 10px;
+      cursor: pointer;
+   }
+   @media (min-width:992px){
+      .confirm-btn{
+         padding: 15px 0;
+         margin: 1em 0;
+      }
    }
 </style>
