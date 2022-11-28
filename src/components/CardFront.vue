@@ -26,20 +26,21 @@
     })
     const formattedCardNumber = ref('');
     watch(cardNumber, (newCardNumber, oldCardNumber) => {
+        const reg = /^\d+$/;
         if(newCardNumber.length === 0) formattedCardNumber.value = '';
+        if(!reg.test(newCardNumber[newCardNumber.length-1])) return;
         if(newCardNumber.length >= oldCardNumber.length){
             formattedCardNumber.value += newCardNumber[newCardNumber.length-1]
             if(newCardNumber.length % 4 === 0 ){
-            formattedCardNumber.value += ' '
+                formattedCardNumber.value += ' '
             }
         }else{
-            if(formattedCardNumber.value.charAt(formattedCardNumber.value.length-2) === ' '){
+            if(formattedCardNumber.value.charAt(formattedCardNumber.value.length-2) === ' ' || formattedCardNumber.value.charAt(formattedCardNumber.value.length-1) === ' '){
                 formattedCardNumber.value = formattedCardNumber.value.slice(0,-2);
             }else{
                 formattedCardNumber.value = formattedCardNumber.value.slice(0,-1);
             }
         }
-
     })
 </script>
 
@@ -77,17 +78,6 @@
         }
         .card-name{
             left: 5%;
-        }
-        // .card-name .card-number .expiration-date{
-        //     font-family: 'Manrope', sans-serif;
-        //     font-weight: 500;
-        //     color: var(--white);
-        //     position: absolute;
-        //     z-index: 3;
-        // }
-        .card_name{
-            top: 0;
-            left: 0;
         }
     }
     @media(min-width: 375px){

@@ -19,7 +19,7 @@
                 
                 <div class="form-group">
                     <label for="card-number" class="form-group__label">Card number</label>
-                    <input type="text" maxlength="16" id="card-number" class="form-group__input" :class="{ 'form-group__input--error': $v.cardNumber.$error}" v-model="formData.cardNumber" placeholder="e.g. 1234 5678 9123 0000">
+                    <input type="text" maxlength="16" id="card-number" class="form-group__input" :class="{ 'form-group__input--error': $v.cardNumber.$error}" v-model="formData.cardNumber" @input="isNumber($event, formData.cardNumber)" placeholder="e.g. 1234 5678 9123 0000">
                     <p v-if="$v.cardNumber.$error" class="error-message">
                         {{$v.cardNumber.$errors[0].$message}}
                     </p>
@@ -75,6 +75,13 @@
     const lettersOnly = (value)=>{
         const pattern = /^[A-Za-z\s]*$/
         return pattern.test(value)
+    }
+    
+    const isNumber = (event)=>{
+        const reg = /^\d+$/;
+        if(!reg.test(event.target.value[event.target.value.length-1])){
+            event.target.value = event.target.value.slice(0,-1);
+        }
     }
 
     const formData = reactive({
