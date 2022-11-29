@@ -21,35 +21,46 @@
         }
         .cvc{
             position: absolute;
-            top: 41%;
+            top: 38%;
             right: 13%;
-            // transform: translateY(50%);
             color: var(--light-grayish-violet);
-            font-size: 12px;
+            font-size: 16px;
             font-family: 'Manrope', sans-serif;
-            font-weight: 500;
+            font-weight: 800;
             z-index: 1;
         }
     }
     @media(min-width: 375px){
         .card-back{
             width: 280px;
+            .cvc{
+                top: 40%;
+                font-size: 18px;
+            }
         }
     }
     @media (min-width: 768px) {
         .card-back{
             width: 350px;
+            .cvc{
+                top: 42%;
+            }
         }
     }
     @media(min-width: 992px){
         .card-back{
+                width: 380px;
                 transform: translate(10%, 0);
                 margin-top: 1em;
-                .cvc{
-                    top: 43%;
-                }
         }
     }
-
+    @media(min-width: 1200px){
+        .card-back{
+            width: 450px;
+            .cvc{
+                top: 43%;
+            }
+        }
+    }
     
 </style>

@@ -43,7 +43,8 @@
     }
     @media(min-width: 992px){
         .form-alert{
-            width: 50%;
+            left: 60%;
+            width: 55%;
         }
     }
 </style>

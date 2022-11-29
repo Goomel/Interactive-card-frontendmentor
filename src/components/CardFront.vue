@@ -47,9 +47,12 @@
 <style lang="scss" scoped>
     .card-front{
         position: relative;
+        left: 5%;
         width: 220px;
         transform: translate(-15%, -45%);
         color: var(--light-grayish-violet);
+        font-weight: 800;
+        letter-spacing: 1.5px;
         &__img{
             width: 100%;
             z-index: 0;
@@ -65,9 +68,9 @@
             position: absolute;
         }
         .card-number{
-            top: 50%;
+            top: 45%;
             left: 5%;
-            font-size: 16px;
+            font-size: 14px;
         }
         .card-name, .expiration-date{
             top: 70%;
@@ -78,22 +81,47 @@
         }
         .card-name{
             left: 5%;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
     }
     @media(min-width: 375px){
         .card-front{
             width: 280px;
+            .card-number{
+                font-size: 20px;
+            }
         }
     }
     @media (min-width: 768px) {
         .card-front{
             width: 350px;
+            &__logo{
+                width: 70px;
+                margin: 1.3em;
+            }
+            .card-number{
+                font-size: 24px;
+            }
         }
     }
     @media(min-width: 992px){
         .card-front{
+                width: 380px;
                 transform: translate(-10%, 0);
                 margin-bottom: 1em;
+                .card-number{
+                    font-size: 26px;
+                    letter-spacing: 2px;
+                }
             }
+    }
+    @media(min-width: 1200px){
+        .card-front{
+            width: 450px;
+            .card-number{
+                font-size: 28px;
+            }
+        }
     }
 </style>

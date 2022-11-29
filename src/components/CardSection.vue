@@ -11,7 +11,7 @@
                 <form class="form">
                 <div class="form-group">
                     <label for="cardholder-name" class="form-group__label">Cardholder name</label>
-                    <input type="text" id="cardholder-name" class="form-group__input" :class="{ 'form-group__input--error': $v.cardholderName.$error}" v-model="formData.cardholderName" placeholder="e.g. Jane Appleseed">
+                    <input type="text" id="cardholder-name" class="form-group__input" :class="{ 'form-group__input--error': $v.cardholderName.$error}" v-model="formData.cardholderName" placeholder="e.g. Jane Appleseed" maxlength="40">
                     <p v-if="$v.cardholderName.$error" class="error-message">
                         {{$v.cardholderName.$errors[0].$message}}
                     </p>
@@ -164,54 +164,55 @@
             display: flex;
     }
     .form-container{
+        position: relative;
         width: 90%;
         margin: 0 auto;
-        .form{
-            display: flex;
-            flex-wrap: wrap;
-            .form-group{
+    }
+    .form{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .form-group{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        text-transform: uppercase;
+        margin-bottom: 1em;
+        &--short{
+            width: 50%;
+        }
+        &__label{
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--very-dark-violet);
+            letter-spacing: 2px;
+            padding: 5px;
+        }
+        &__input{
+            font-size: 16px;
+            padding: 10px;
+            border: 1px solid var(--light-grayish-violet);
+            border-radius: 10px;
+            &:focus{
+                outline: 1px solid var(--active-input);  
+            }
+            &--date{
                 width: 100%;
-                display: flex;
-                flex-direction: column;
-                text-transform: uppercase;
-                margin-bottom: 1em;
-                &__label{
-                    font-size: 12px;
-                    font-weight: bold;
-                    color: var(--very-dark-violet);
-                    letter-spacing: 2px;
-                    padding: 5px;
-                }
-                .error-message{
-                    font-size: 10px;
-                    text-transform: initial;
-                    margin-top: 5px;
-                    color: var(--error-input);
-                }
-                &--short{
-                    width: 50%;
-                }
-                &__input{
-                    font-size: 14px;
-                    padding: 10px;
-                    border: 1px solid var(--light-grayish-violet);
-                    border-radius: 10px;
-                    &:focus{
-                        outline: 1px solid var(--active-input);  
-                    }
-                    &--date{
-                        width: 100%;
-                    }
-                    &--error{
-                        border: 1px solid var(--error-input);
-                    }
-                }
-                .card-date{
-                    display: flex;
-                    &__year{
-                        margin: 0 20px 0 5px;
-                    }
-                }
+            }
+            &--error{
+                border: 1px solid var(--error-input);
+            }
+        }
+        .error-message{
+            font-size: 10px;
+            text-transform: initial;
+            margin-top: 5px;
+            color: var(--error-input);
+        }
+        .card-date{
+            display: flex;
+            &__year{
+                margin: 0 20px 0 5px;
             }
         }
     }
@@ -221,9 +222,17 @@
         }
     }
     @media(min-width: 768px){
+        .form-group{
+            margin-bottom: 1.5em;
+            &__input{
+                font-size: 18px;
+                padding: 15px;
+            }
+        }
         .cards-side{
             margin-bottom: 9em;
         }
+        
     }
     @media(min-width: 992px){
         .interactive-card{
@@ -235,10 +244,11 @@
             background-image: url('../assets/images/bg-main-desktop.png');
             margin: 0;
             .cards{
+                margin: 0 3em;
                 top: 50%;
                 transform: translateY(-50%);
                 flex-direction: column-reverse;
-                left: 40%
+                left: 40%;
             }
         }
         .form-side{
@@ -246,18 +256,9 @@
             justify-content: center;
             align-items: center;
             .form-container{
-                width: 40%;
-                min-width: 300px;
+                width: 45%;
+                min-width: 350px;
                 margin-left: 35%;
-                .form-group{
-                    margin-bottom: 0.8em;
-                    &__label{
-                        font-size: 10px;
-                    }
-                    &__input{
-                        font-size: 12px;
-                    }
-                }
             }
         }
     }

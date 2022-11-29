@@ -1,29 +1,23 @@
-# interactive-card
+# Frontend Mentor - Advice generator app solution
 
-This template should help get you started developing with Vue 3 in Vite.
+Solution to the [Interactive card details challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/interactive-card-details-form-XpS8cKZDWw)
 
-## Recommended IDE Setup
+### Screenshot
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+![Screenshots](./src/assets/images/ss1.PNG) ![](./src/assets/images/ss2.PNG)
 
-## Customize configuration
+### Links
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+- Live Site URL: [https://interactive-card-frontendmentor.netlify.app](https://interactive-card-frontendmentor.netlify.app)
 
-## Project Setup
+### Built with
 
-```sh
-npm install
-```
+- Vue3
+- Vuelidate
+- SCSS
+- Mobile-first workflow
+- Bootstrap breakpoints
 
-### Compile and Hot-Reload for Development
+## Author
 
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+- Author Name - Jakub Grzymisławski
